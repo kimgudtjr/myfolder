@@ -15,6 +15,7 @@
 //#pragma comment(lib, "sqlite3.lib")
 
 #define DF_VSSEXTRACT_DBNAME "info.db"
+#define DF_VSSEXTRACT_TABLENAME "MFT"
 
 typedef struct _stDbInfo{
    std::string FILENAME; 

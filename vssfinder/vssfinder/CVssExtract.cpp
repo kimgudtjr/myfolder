@@ -18,6 +18,7 @@ bool CVssExtract::DropVssResult()
 
 	tmpnam(sFileName);
 	sTempFile = sFileName;
+	sTempFile = sTempFile + "tmp";
 	sCmd = std::string("vssadmin list shadows | find \"ShadowCopy\" > ") +  &(sTempFile.c_str())[1];
 
 	char sCurrentPath[MAX_PATH] = {0};
@@ -145,10 +146,10 @@ bool CVssExtract::GetDbInfoList(const char* a_sVssPath)
 	m_vcDbInfoList.clear();
 	FindFiles(sFindPath.c_str());
 
-	char sFileName[_MAX_FNAME] = {0};
-	_splitpath_s(a_sVssPath,NULL,NULL,NULL,NULL,sFileName,_MAX_FNAME,NULL,NULL);
+	//char sFileName[_MAX_FNAME] = {0};
+	//_splitpath_s(a_sVssPath,NULL,NULL,NULL,NULL,sFileName,_MAX_FNAME,NULL,NULL);
 
-	CreateInfoDb(sFileName);
+	CreateInfoDb(DF_VSSEXTRACT_TABLENAME);
 	
 	return true;
 }
